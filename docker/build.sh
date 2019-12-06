@@ -7,8 +7,13 @@ else
 fi
 
 # copy application files to a temp folder
+#
 ./copy.sh tmp/
-docker build -t $CNAME .
+
+# build the container and specify the container volume name
+# and environment variable
+#
+docker build --build-arg CMOUNT=/mnt/outside -t $CNAME .
 echo " -> created container image: $CNAME"
 
 echo " -> cleaning up..."

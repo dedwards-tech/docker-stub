@@ -5,7 +5,7 @@ echo "CMOUNT: $CMOUNT (env)"
 echo "ARGS:   $@"
 
 echo ""
-echo " -- do something here --"
+cd /app ; echo " -- do something here --"
 echo ""
 
 echo "*** container run complete ***"

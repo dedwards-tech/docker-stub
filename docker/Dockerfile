@@ -1,6 +1,7 @@
 FROM centos:7
 
-ENV CMOUNT="/mnt/outside"
+ARG CMOUNT="/mnt/outside"
+ENV CMOUNT=$CMOUNT
 
 RUN mkdir -p $CMOUNT ; mkdir -p /app
 VOLUME $CMOUNT
@@ -11,6 +12,15 @@ COPY drun.sh /
 
 # Copy application files to the container
 COPY tmp/. /app/
+
+#######################################################
+### ADD YOUR CONTAINER SETUP CODE HERE              ###
+
+###
+
+### STOP HERE - use drun.sh to execute your app     ###
+###             extra input args are automajically  ###
+###             passed to the drun.sh script.       ###
 
 ENTRYPOINT [ "/drun.sh" ]
 CMD [ "--help" ]
